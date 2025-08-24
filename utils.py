@@ -1,4 +1,5 @@
-import exiftool
+# import exiftool
+import termux_exiftool as exiftool
 import json
 import logging
 import os
@@ -81,32 +82,19 @@ def input_output_binary_compare(input_video: str, output_image: str) -> bool:
     return False
 
 def load_defaults() -> Dict[str, Any]:
-    try:
-        scriptdir = Path(__file__).resolve().parent
-        with open(scriptdir / 'motionphoto2.json', 'r' , encoding='utf-8') as f:
-            return json.load(f)
-    except:
-        return {
-            'input_directory' : '',
-            'recursive' : True,
-            'exif_match' : True,
-            'incremental_mode' : False,
-            'copy_unmuxed' : False,
-            'output_directory' : '',
-            'delete_video' : False,
-            'overwrite' : False,
-            'keep_temp' : False,
-            'verbose' : False,
-            'input_image' : '',
-            'input_video' : '',
-            'output_file' : '',
-            'no_xmp' : False
-        }
-        
-def save_defaults(defaults: Dict[str, Any]):
-    try:
-        scriptdir = Path(__file__).resolve().parent
-        with open(scriptdir / 'motionphoto2.json', 'w' , encoding='utf-8') as f: 
-            json.dump(defaults, f, indent=3)       
-    except:
-        pass
+    return {
+        'input_directory' : None,
+        'recursive' : True,
+        'exif_match' : False,
+        'incremental_mode' : False,
+        'copy_unmuxed' : False,
+        'output_directory' : None,
+        'delete_video' : False,
+        'overwrite' : False,
+        'keep_temp' : False,
+        'verbose' : False,
+        'input_image' : None,
+        'input_video' : None,
+        'output_file' : None,
+        'no_xmp' : False
+    }

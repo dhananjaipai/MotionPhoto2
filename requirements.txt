@@ -1,4 +1,3 @@
 lxml
-PyExifTool
-Gooey
+# PyExifTool # Replaced by termux_exiftool for android
 six

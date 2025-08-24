@@ -1,5 +1,6 @@
 import logging
-import exiftool
+# import exiftool
+import termux_exiftool as exiftool
 import os
 import sys
 import shutil
